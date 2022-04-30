@@ -10,6 +10,6 @@ export const authTwitter = async ():Promise<void> => {
    const { host } = location;
    const encodedURL = encodeURIComponent(`https://${host}/return-twitter`)
    console.log('chamando função dentro da API')
-   return await twitterInstance.post(`request_token?oauth_callback=${encodedURL}`);
+   return await twitterInstance.post(`request_token?oauth_callback=${encodedURL}`).catch(err => err);
  }
 }
