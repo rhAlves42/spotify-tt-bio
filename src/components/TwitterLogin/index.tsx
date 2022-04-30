@@ -1,17 +1,9 @@
 import React from 'react'
-import tryCatch from '../../hooks/tryCatch'
-import { authTwitter } from '../../services/twitter'
+import { loginTwitter } from '../../services'
 
 const TwitterLogin = () => {
   const [hasError, setHasError] = React.useState<boolean>()
-  const onClick = async () => {
-    const [result, error] = await tryCatch({ req: authTwitter() })
-    if (error) setHasError(true)
-    if (result) {
-      setHasError(false)
-      console.log('result', result)
-    }
-  }
+  const onClick = async () => await loginTwitter()
   return (
     <section className="">
       <h2>
